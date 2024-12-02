@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2c3e50;
+            font-family: Arial, sans-serif;
+            color: #ecf0f1;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 40px;
+        }
+
+        #countdown {
+            font-size: 5rem;
+            background-color: #34495e;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeScale 0.8s ease-in-out;
+        }
+
+        @keyframes fadeScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Countdown Timer</h1> 
+    <div id="countdown">10</div>
+
+    <script>
+        let countdownValue = 10;
+        const countdownElement = document.getElementById('countdown');
+
+        const countdown = setInterval(() => {
+            countdownValue--;
+            if (countdownValue > 0) {
+                countdownElement.textContent = countdownValue;
+            } else {
+                clearInterval(countdown);
+                countdownElement.textContent = "Time's up";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
